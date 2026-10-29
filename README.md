@@ -130,4 +130,5 @@ MIT, see [LICENSE](LICENSE).
 ---
 
 Made by Kunal ([@kunalsharmavlog-hue](https://github.com/kunalsharmavlog-hue)). Also by Kunal:
-[Revive](https://github.com/kunalsharmavlog-hue/revive), free data recovery for Mac.
+[Revive](https://github.com/kunalsharmavlog-hue/revive) (free data recovery for Mac) and
+[Pangolin](https://github.com/kunalsharmavlog-hue/pangolin) (free Mac cleaner and system monitor).
