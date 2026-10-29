@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { width: 320px; margin: 0; padding: 14px; font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #fafafa; color: #222; }
+    h1 { font-size: 15px; margin: 0 0 10px; }
+    h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 18px 0 2px; border-top: 1px solid #e4e4e4; padding-top: 12px; }
+    h2 .hint { text-transform: none; letter-spacing: 0; }
+    label { display: block; font-weight: 600; margin: 12px 0 4px; }
+    .row { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; font-weight: 400; }
+    .row input { margin-top: 2px; }
+    textarea { width: 100%; box-sizing: border-box; min-height: 60px; font: 12px/1.4 ui-monospace, Menlo, monospace; padding: 6px; border: 1px solid #ccc; border-radius: 6px; resize: vertical; }
+    #keywords { min-height: 120px; }
+    .hint { color: #777; font-size: 11px; font-weight: 400; }
+    .presets { display: flex; flex-wrap: wrap; gap: 6px; }
+    .presets button { border: 1px solid #ccc; background: #fff; border-radius: 14px; padding: 3px 10px; cursor: pointer; font: inherit; }
+    #play { width: 100%; padding: 9px; border-radius: 6px; border: 0; background: #e1306c; color: #fff; font: 600 14px/1 inherit; cursor: pointer; }
+    .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+    .chip { font: 11px/1 -apple-system, sans-serif; padding: 4px 7px; border-radius: 10px; background: #e7f6ec; color: #1c6b38; }
+    .chip.neg { background: #fbe9e9; color: #9b2c2c; }
+    .link { border: 0; background: none; color: #e1306c; font: 11px/1 inherit; cursor: pointer; float: right; padding: 0; }
+    #helper { margin: 6px 0; padding: 6px 8px; border-radius: 6px; background: #f0f0f0; font-size: 11px; }
+    #helper.ok { background: #e7f6ec; color: #1c6b38; }
+    #save { width: 100%; margin-top: 14px; padding: 7px; border-radius: 6px; background: #222; color: #fff; border: 0; cursor: pointer; font: inherit; }
+    #status { text-align: center; color: #2a7; height: 16px; margin-top: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Focus Feed</h1>
+
+  <button id="play">▶ Play Topic Reels</button>
+  <div class="hint" style="margin-top:4px">Searches Instagram for the topics below and plays only those reels, one after another.</div>
+
+  <label>Topics <span class="hint">(one search per line)</span></label>
+  <textarea id="topics"></textarea>
+
+  <label>What it learned you like <button id="resetTaste" class="link">Reset</button></label>
+  <div id="taste" class="hint">Nothing yet. Like, save or fully watch some reels.</div>
+
+  <h2>Feed &amp; Reels filter</h2>
+  <label class="row"><input type="checkbox" id="enabled"> Filter my feed and Reels</label>
+  <label class="row"><input type="checkbox" id="autoSkip"> Auto-skip reels that don't match</label>
+
+  <label>Preset</label>
+  <div class="presets">
+    <button data-preset="editing">Editing</button>
+    <button data-preset="coding">Coding</button>
+    <button data-preset="fitness">Fitness</button>
+    <button data-preset="cooking">Cooking</button>
+  </div>
+
+  <label>Only show posts about <span class="hint">(one keyword or hashtag per line)</span></label>
+  <textarea id="keywords"></textarea>
+
+  <label>Always hide <span class="hint">(even if they match)</span></label>
+  <textarea id="blockWords" placeholder="meme&#10;prank"></textarea>
+
+  <label>Always show these accounts <span class="hint">(usernames)</span></label>
+  <textarea id="accounts" placeholder="adobepremiere&#10;capcut"></textarea>
+
+  <h2>Downloads <span class="hint">(optional, needs the local downloader)</span></h2>
+  <div id="helper">Checking the downloader…</div>
+  <label class="row"><input type="checkbox" id="showDownloadButton"> Show the "⬇ Download reel" button</label>
+  <label class="row"><input type="checkbox" id="saveLiked"> Save reels I like</label>
+  <label class="row"><input type="checkbox" id="useLogin">
+    <span>Use my Instagram login for reels that need it
+      <span class="hint"><br>Sends your instagram.com cookies to the downloader on this computer only. They're deleted after each download.</span></span>
+  </label>
+
+  <button id="save">Save</button>
+  <div id="status"></div>
+
+  <script src="defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

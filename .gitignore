@@ -1,0 +1,4 @@
+# Created by saver/install.sh for each user
+saver/config.json
+saver/run-host.sh
+.DS_Store
